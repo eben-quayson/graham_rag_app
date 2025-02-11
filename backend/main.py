@@ -7,6 +7,8 @@ from langchain.chains import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from dotenv import load_dotenv
+
+
 load_dotenv()
 
 # Set up environment variable for Google API key
