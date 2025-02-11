@@ -6,9 +6,11 @@ from langchain_chroma import Chroma
 from langchain.chains import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
+from dotenv import load_dotenv
+load_dotenv()
 
 # Set up environment variable for Google API key
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Initialize the Google Generative AI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
