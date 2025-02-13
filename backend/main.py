@@ -53,9 +53,8 @@ class QueryRequest(BaseModel):
 
     Attributes:
         query (str): The query string.
-    
+    """
     query: str
-"""
 
 @app.post("/process_query")
 async def process_query(request: QueryRequest):
