@@ -43,5 +43,5 @@ for i, q in enumerate(st.session_state.queries):
         st.write(st.session_state.queries[i]['response']['result'])
 
 # Button to add a new query input box
-if st.button("Any more questions🤔"):
+if st.button("Any more questions🤔", type="primary"):
     add_query()
