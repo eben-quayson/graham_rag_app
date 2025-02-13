@@ -3,8 +3,6 @@ import streamlit as st
 import requests
 
 
-st.session_state.queries = []
-
 # Initialize session state for queries
 if 'queries' not in st.session_state:
     st.session_state.queries = []
