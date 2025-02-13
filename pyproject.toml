@@ -13,3 +13,6 @@ dependencies = [
     "langchain-google-genai>=2.0.9",
     "unstructured>=0.16.20",
 ]
+
+[tool.uv.workspace]
+members = ["rag_app"]

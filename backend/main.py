@@ -14,8 +14,14 @@ load_dotenv()
 # Set up environment variable for Google API key
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
+system_prompt = """
+You are a helpful assistant. You will be given a question and you will answer it. 
+Even if the question is not related to Paul Graham's essays, revert to a general knowledge base.
+""" 
+
+
 # Initialize the Google Generative AI model
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", system_prompt=system_prompt, api_key=GOOGLE_API_KEY)
 
 # Initialize embeddings
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
@@ -41,10 +47,35 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=ve
 # FastAPI application
 app = FastAPI()
 
+
 class QueryRequest(BaseModel):
+    """
+    A class representing a query request to the API.
+
+    Attributes:
+        query (str): The query string.
+    """
     query: str
+
 
 @app.post("/process_query")
 async def process_query(request: QueryRequest):
-    response = qa_chain.run(request.query)
+    """
+    Process a user query and return the result.
+
+    Args:
+        request (QueryRequest): A QueryRequest object containing the query string.
+
+    Returns:
+        dict: A dictionary containing the answer to the query.
+    """
+
+    # Run the query through the retrieval chain
+    response = qa_chain.invoke(request.query)
+    
+    # Return the answer to the query
     return {"answer": response}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
