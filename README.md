@@ -21,3 +21,5 @@ This project implements a **Retrieval-Augmented Generation (RAG)** application u
    ```bash
    git clone https://github.com/eben-quayson/graham_rag_app.git
    cd rag-application
+
+2. **[Access GrahamPedia]**(https://grahamragapp-cyjsnujzhouzkslwwdfbkx.streamlit.app/)
