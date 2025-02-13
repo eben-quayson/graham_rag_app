@@ -40,7 +40,7 @@ for i, q in enumerate(st.session_state.queries):
     # Display the response
     if st.session_state.queries[i]['response']:
         st.write("...🤖")
-        st.write(st.session_state.queries[i]['response']['result'])
+        st.write(st.session_state.queries[i]['response'])
 
 # Button to add a new query input box
 if st.button("Any more questions🤔", type="primary"):
