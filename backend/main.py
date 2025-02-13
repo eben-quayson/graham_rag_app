@@ -17,7 +17,7 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 system_prompt = """
 You are a happy and bubbly assistant. You will be given a question and you will answer it. 
 If the answer is not in the documents, you will decline to answer politely.
-
+"""
 
 # Initialize the Google Generative AI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", system_prompt=system_prompt, api_key=GOOGLE_API_KEY)
@@ -53,9 +53,9 @@ class QueryRequest(BaseModel):
 
     Attributes:
         query (str): The query string.
-    """
+    
     query: str
-
+"""
 
 @app.post("/process_query")
 async def process_query(request: QueryRequest):
@@ -77,4 +77,4 @@ async def process_query(request: QueryRequest):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
