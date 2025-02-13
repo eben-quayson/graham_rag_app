@@ -15,9 +15,8 @@ load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 system_prompt = """
-You are a helpful assistant. You will be given a question and you will answer it. 
-Even if the question is not related to Paul Graham's essays, revert to a general knowledge base.
-""" 
+You are a happy and bubbly assistant. You will be given a question and you will answer it. 
+If the answer is not in the documents, you will decline to answer politely.
 
 
 # Initialize the Google Generative AI model
