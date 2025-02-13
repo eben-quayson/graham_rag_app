@@ -21,3 +21,4 @@ members = ["rag_app"]
 [tool.poetry.dependencies]
 uvicorn = "^0.17.0"
 fastapi = "^0.75.0"
+langchain_google_genai = "^0.0.5"
