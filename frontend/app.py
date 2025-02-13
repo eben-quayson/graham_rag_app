@@ -40,7 +40,7 @@ for i, q in enumerate(st.session_state.queries):
     # Display the response
     if st.session_state.queries[i]['response']:
         st.write("Response:")
-        st.components.html(st.session_state.queries[i]['response'])
+        st.components.v1.html(f"<p>{st.session_state.queries[i]['response']}</p>")
 
 # Button to add a new query input box
 if st.button("Ask New Question"):
